@@ -1,0 +1,80 @@
+<body class="gray-bg">
+
+    <div class="loginColumns animated fadeInDown">
+        <div class="row">
+
+            <div class="col-md-6">
+                <h2 class="font-bold">Register</h2>
+
+                <p>
+                    Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
+                </p>
+
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                </p>
+
+                <p>
+                    When an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </p>
+
+                <p>
+                    <small>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</small>
+                </p>
+
+            </div>
+            <div class="col-md-6">
+                <div class="ibox-content">
+                    <form class="m-t" role="form" id="form-register" (ngSubmit)=signup(f) #f=ngForm>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Email" required [(ngModel)]="user.email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" placeholder="Password" required [(ngModel)]="user.password">
+                        </div>
+                        <div class="form-group">
+                            <small class="text-danger" *ngIf="confirm">Passwords do not match</small>
+                            <input type="password" class="form-control" name="confirm" placeholder="Confirm Password" required [(ngModel)]="user.confirm">
+                        </div>
+                        <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
+                    </form>
+                    <p class="m-t">
+                        <small>&copy; 2014</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-md-6">
+                Copyright Example Company
+            </div>
+            <div class="col-md-6 text-right">
+               <small>© 2020-2021</small>
+            </div>
+        </div>
+    </div>
+<script>
+    
+    $( document ).ready(function() {
+        jQuery.validator.setDefaults({
+            highlight: function(element) {
+                jQuery(element).closest('.form-control').addClass('is-invalid');
+            },
+            unhighlight: function(element) {
+                jQuery(element).closest('.form-control').removeClass('is-invalid');
+            },
+            errorElement: 'span',
+            errorClass: 'label label-danger',
+            errorPlacement: function(error, element) {
+                if(element.parent('.input-group').length) {
+                    error.insertAfter(element.parent());
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+        });
+    $("#form-register").validate();
+});
+</script>
+</body>
